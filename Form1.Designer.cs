@@ -46,12 +46,18 @@
             nudWeight = new NumericUpDown();
             rbLb = new RadioButton();
             rbKg = new RadioButton();
+            grpErrorStatus = new GroupBox();
+            rbValid = new RadioButton();
+            rbInvalid = new RadioButton();
+            rbMotion = new RadioButton();
+            rbOverUnder = new RadioButton();
             btnStartStop = new Button();
             lblStatus = new Label();
             lblLog = new Label();
             txtLog = new TextBox();
             grpSerialPort.SuspendLayout();
             grpScaleOutput.SuspendLayout();
+            grpErrorStatus.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudWeight).BeginInit();
             SuspendLayout();
             //
@@ -207,6 +213,55 @@
             rbKg.Text = "kg";
             rbKg.UseVisualStyleBackColor = true;
             //
+            // grpErrorStatus
+            //
+            grpErrorStatus.Controls.Add(rbValid);
+            grpErrorStatus.Controls.Add(rbInvalid);
+            grpErrorStatus.Controls.Add(rbMotion);
+            grpErrorStatus.Controls.Add(rbOverUnder);
+            grpErrorStatus.Location = new Point(264, 148);
+            grpErrorStatus.Name = "grpErrorStatus";
+            grpErrorStatus.Size = new Size(240, 125);
+            grpErrorStatus.TabIndex = 2;
+            grpErrorStatus.TabStop = false;
+            grpErrorStatus.Text = "Error Status";
+            //
+            // rbValid
+            //
+            rbValid.AutoSize = true;
+            rbValid.Location = new Point(10, 22);
+            rbValid.Name = "rbValid";
+            rbValid.Size = new Size(51, 19);
+            rbValid.Text = "Valid";
+            rbValid.UseVisualStyleBackColor = true;
+            //
+            // rbInvalid
+            //
+            rbInvalid.AutoSize = true;
+            rbInvalid.Location = new Point(10, 47);
+            rbInvalid.Name = "rbInvalid";
+            rbInvalid.Size = new Size(60, 19);
+            rbInvalid.Text = "Invalid";
+            rbInvalid.UseVisualStyleBackColor = true;
+            //
+            // rbMotion
+            //
+            rbMotion.AutoSize = true;
+            rbMotion.Location = new Point(10, 72);
+            rbMotion.Name = "rbMotion";
+            rbMotion.Size = new Size(63, 19);
+            rbMotion.Text = "Motion";
+            rbMotion.UseVisualStyleBackColor = true;
+            //
+            // rbOverUnder
+            //
+            rbOverUnder.AutoSize = true;
+            rbOverUnder.Location = new Point(10, 97);
+            rbOverUnder.Name = "rbOverUnder";
+            rbOverUnder.Size = new Size(115, 19);
+            rbOverUnder.Text = "Over/Under Range";
+            rbOverUnder.UseVisualStyleBackColor = true;
+            //
             // btnStartStop
             //
             btnStartStop.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
@@ -230,7 +285,7 @@
             // lblLog
             //
             lblLog.AutoSize = true;
-            lblLog.Location = new Point(12, 272);
+            lblLog.Location = new Point(12, 280);
             lblLog.Name = "lblLog";
             lblLog.Size = new Size(72, 15);
             lblLog.Text = "Output Log:";
@@ -239,7 +294,7 @@
             //
             txtLog.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txtLog.Font = new Font("Consolas", 9F);
-            txtLog.Location = new Point(12, 292);
+            txtLog.Location = new Point(12, 300);
             txtLog.Multiline = true;
             txtLog.Name = "txtLog";
             txtLog.ReadOnly = true;
@@ -249,20 +304,23 @@
             // Form1
             //
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 525);
+            ClientSize = new Size(520, 533);
             Controls.Add(grpSerialPort);
             Controls.Add(grpScaleOutput);
+            Controls.Add(grpErrorStatus);
             Controls.Add(btnStartStop);
             Controls.Add(lblStatus);
             Controls.Add(lblLog);
             Controls.Add(txtLog);
-            MinimumSize = new Size(536, 564);
+            MinimumSize = new Size(536, 572);
             Name = "Form1";
             Text = "Rice Lake CSL680 Simulator";
             grpSerialPort.ResumeLayout(false);
             grpSerialPort.PerformLayout();
             grpScaleOutput.ResumeLayout(false);
             grpScaleOutput.PerformLayout();
+            grpErrorStatus.ResumeLayout(false);
+            grpErrorStatus.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudWeight).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -287,6 +345,11 @@
         private NumericUpDown nudWeight;
         private RadioButton rbLb;
         private RadioButton rbKg;
+        private GroupBox grpErrorStatus;
+        private RadioButton rbValid;
+        private RadioButton rbInvalid;
+        private RadioButton rbMotion;
+        private RadioButton rbOverUnder;
         private Button btnStartStop;
         private Label lblStatus;
         private Label lblLog;

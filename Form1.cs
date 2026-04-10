@@ -35,6 +35,7 @@ namespace Simulator
             cmbParity.SelectedItem = Parity.None;
 
             rbLb.Checked = true;
+            rbValid.Checked = true;
         }
 
         private void RefreshComPorts()
@@ -152,7 +153,10 @@ namespace Simulator
             string weightStr = Math.Abs(weight).ToString("F2").PadLeft(7);
             char unit = rbKg.Checked ? 'K' : 'L';
             char grossNet = 'G';     // G = Gross
-            char status = ' ';       // space = valid
+            char status = rbInvalid.Checked ? 'I'
+                        : rbMotion.Checked ? 'M'
+                        : rbOverUnder.Checked ? 'O'
+                        : ' ';               // Valid
 
             return $"{stx}{polarity}{weightStr}{unit}{grossNet}{status}\r\n";
         }
