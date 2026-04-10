@@ -139,21 +139,22 @@ namespace Simulator
         }
 
         /// <summary>
-        /// Builds a Rice Lake CSL680 continuous output string.
-        /// Format: STX + status + polarity + weight(7 chars, right-justified) + space + unit(2) + CR + LF
-        /// Example: \x02   125.00 lb\r\n
+        /// Builds a Rice Lake Weighing Systems continuous output string (Section 11.3.1).
+        /// Format: STX + POL + weight(7) + UNIT(1) + G/N(1) + S(1) + CR + LF
+        /// Example: \x02 125.00LG \r\n
         /// </summary>
         private string BuildCsl680Output()
         {
             decimal weight = nudWeight.Value;
-            string unit = rbKg.Checked ? "kg" : "lb";
 
             const char stx = '\x02';
-            char status = ' ';   // space = stable / no motion
             char polarity = weight >= 0 ? ' ' : '-';
             string weightStr = Math.Abs(weight).ToString("F2").PadLeft(7);
+            char unit = rbKg.Checked ? 'K' : 'L';
+            char grossNet = 'G';     // G = Gross
+            char status = ' ';       // space = valid
 
-            return $"{stx}{status}{polarity}{weightStr} {unit}\r\n";
+            return $"{stx}{polarity}{weightStr}{unit}{grossNet}{status}\r\n";
         }
 
         private static string EscapeForDisplay(string s)
