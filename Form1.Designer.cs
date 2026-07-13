@@ -1,4 +1,4 @@
-﻿namespace Simulator
+namespace Simulator
 {
     partial class Form1
     {
@@ -46,6 +46,8 @@
             nudWeight = new NumericUpDown();
             rbLb = new RadioButton();
             rbKg = new RadioButton();
+            rbGross = new RadioButton();
+            rbNet = new RadioButton();
             grpErrorStatus = new GroupBox();
             rbValid = new RadioButton();
             rbInvalid = new RadioButton();
@@ -171,9 +173,11 @@
             grpScaleOutput.Controls.Add(nudWeight);
             grpScaleOutput.Controls.Add(rbLb);
             grpScaleOutput.Controls.Add(rbKg);
+            grpScaleOutput.Controls.Add(rbGross);
+            grpScaleOutput.Controls.Add(rbNet);
             grpScaleOutput.Location = new Point(264, 12);
             grpScaleOutput.Name = "grpScaleOutput";
-            grpScaleOutput.Size = new Size(240, 130);
+            grpScaleOutput.Size = new Size(240, 155);
             grpScaleOutput.TabIndex = 1;
             grpScaleOutput.TabStop = false;
             grpScaleOutput.Text = "Scale Output";
@@ -213,13 +217,33 @@
             rbKg.Text = "kg";
             rbKg.UseVisualStyleBackColor = true;
             //
+            // rbGross
+            //
+            rbGross.AutoSize = true;
+            rbGross.Checked = true;
+            rbGross.Location = new Point(70, 113);
+            rbGross.Name = "rbGross";
+            rbGross.Size = new Size(56, 19);
+            rbGross.TabStop = true;
+            rbGross.Text = "Gross";
+            rbGross.UseVisualStyleBackColor = true;
+            //
+            // rbNet
+            //
+            rbNet.AutoSize = true;
+            rbNet.Location = new Point(135, 113);
+            rbNet.Name = "rbNet";
+            rbNet.Size = new Size(42, 19);
+            rbNet.Text = "Net";
+            rbNet.UseVisualStyleBackColor = true;
+            //
             // grpErrorStatus
             //
             grpErrorStatus.Controls.Add(rbValid);
             grpErrorStatus.Controls.Add(rbInvalid);
             grpErrorStatus.Controls.Add(rbMotion);
             grpErrorStatus.Controls.Add(rbOverUnder);
-            grpErrorStatus.Location = new Point(264, 148);
+            grpErrorStatus.Location = new Point(264, 173);
             grpErrorStatus.Name = "grpErrorStatus";
             grpErrorStatus.Size = new Size(240, 125);
             grpErrorStatus.TabIndex = 2;
@@ -304,7 +328,7 @@
             // Form1
             //
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(520, 533);
+            ClientSize = new Size(520, 558);
             Controls.Add(grpSerialPort);
             Controls.Add(grpScaleOutput);
             Controls.Add(grpErrorStatus);
@@ -345,6 +369,8 @@
         private NumericUpDown nudWeight;
         private RadioButton rbLb;
         private RadioButton rbKg;
+        private RadioButton rbGross;
+        private RadioButton rbNet;
         private GroupBox grpErrorStatus;
         private RadioButton rbValid;
         private RadioButton rbInvalid;

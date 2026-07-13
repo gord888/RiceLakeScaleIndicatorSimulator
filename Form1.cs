@@ -149,14 +149,28 @@ namespace Simulator
             decimal weight = nudWeight.Value;
 
             const char stx = '\x02';
-            char polarity = weight >= 0 ? ' ' : '-';
-            string weightStr = Math.Abs(weight).ToString("F2").PadLeft(7);
-            char unit = rbKg.Checked ? 'K' : 'L';
-            char grossNet = 'G';     // G = Gross
+
             char status = rbInvalid.Checked ? 'I'
                         : rbMotion.Checked ? 'M'
                         : rbOverUnder.Checked ? 'O'
-                        : ' ';               // Valid
+                        : ' ';
+
+            char polarity;
+            string weightStr;
+
+            if (status == 'I')
+            {
+                polarity = ' ';
+                weightStr = "~~~~~~~";
+            }
+            else
+            {
+                polarity = weight >= 0 ? ' ' : '-';
+                weightStr = Math.Abs(weight).ToString("F2").PadLeft(7);
+            }
+
+            char unit = rbKg.Checked ? 'K' : 'L';
+            char grossNet = rbNet.Checked ? 'N' : 'G';
 
             return $"{stx}{polarity}{weightStr}{unit}{grossNet}{status}\r\n";
         }
